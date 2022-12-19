@@ -1,0 +1,50 @@
+<body>
+    
+
+<div class="container pt-3">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h3> {{texto}}
+                        <div *ngIf="loadding"class="spinner-border text-success" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                          </div>
+                    </h3>
+                    <span *ngIf="submitted && createProducto.invalid">Por favor llene todos los campos</span>
+                    <form [formGroup]="createProducto" (ngSubmit)="agregarEditarProducto()">
+                        <div class="row">
+                            <div class="col">
+                                <label for="nombre" class="mt-2">Nombre</label>
+                                <input formControlName="nombre" type="text" class="form-control form-control-lg mt-3" placeholder="Nombre" name="nombre" id="nombre">
+                            </div>
+
+                            <div class="col">
+                                <label for="codigo" class="mt-2">Codigo</label>
+                                <input formControlName="codigo" type="text" class="form-control form-control-lg mt-3" placeholder="Codigo" name="codigo" name="codigo">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <label for="precio" class="mt-2">Precio</label>
+                                <input formControlName="precio" type="number" class="form-control form-control-lg mt-3" placeholder="Precio" name="precio" id="precio">
+                            </div>
+
+                            <div class="col">
+                                <label for="descripcion" class="mt-2">Descripcion</label>
+                                <input formControlName="descripcion" type="text" class="form-control form-control-lg mt-3" placeholder="Descripcion" name="descripcion" id="descripcion">
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <button type="text" class="btn btn-secondary btn-lg" routerLink="/listarproductos">Volver</button>
+                            <button type="submit"  class="btn btn-dark btn-lg">Agregar</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>

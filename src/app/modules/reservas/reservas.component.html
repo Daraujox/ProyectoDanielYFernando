@@ -1,0 +1,43 @@
+<body>
+    <div class="container mt-0">
+    <div class="card">
+        <div class="card-body">
+            <span class="h3">Lista de Reserva</span>
+            <button class="btn btn-secondary btn-lg" routerLink="/createreserva"> Agregar </button>
+            <h4 *ngIf="reservas.length == 0" style="margin-top: 3px; color: red; text-align: center;">No hay datos para mostar</h4>
+            <table *ngIf="reservas.length > 0" class="table table-striped table-hover mt-2">
+                <thead>
+                  <tr>
+                    <th>Cedula</th>
+                    <th>Nombre</th>
+                    <th>Fecha</th>
+                    <th>N° persona</th>
+                    <th>Tipo de documento</th>
+                    <th> Hora</th>
+                    <th>Producto</th>
+                    <th>Acciones </th>
+                  </tr>
+                </thead>
+                <tbody>
+                
+                  <tr *ngFor="let reserva of reservas">
+                    <td>{{ reserva.cedula }}</td>
+                    <td>{{ reserva.nombre }}</td>
+                    <td>{{ reserva.fecha }}</td>
+                    <td>{{ reserva.npersona }}</td>
+                    <td>{{ reserva.tipo }}</td>
+                    <td>{{ reserva.hora }}</td>
+                    <td>{{ reserva.articulo }}</td>
+                    <td>
+                        <i class="fas fa-edit fa-lg text-info mr-2" [routerLink]="['/editarreserva/', reserva.id]"  ></i>
+                        <i (click)="eliminarReserva(reserva.id)" class="fas fa-trash-alt fa-lg text-danger"></i>
+                    </td>
+                    
+                  </tr>
+                </tbody>
+              </table>
+               
+        </div>
+    </div>
+</div>
+</body>
